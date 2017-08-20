@@ -1,0 +1,12 @@
+thisapp.Mie_funzioni.debug("1" ,zoho.appname ,"schedule" ,"AlmostOver" ,"running the AlmostOver schedule" );
+for each ind in woocommerce_report[Data_Fine == Tomorrow]
+{
+	sendmail
+	[
+		from:zoho.adminuserid
+		to:ind.Email
+		subject:"expressowifi - Your Rent is almost Over for order " + ind.Order
+		message:"<div><b><img src=\"https://www.expressowifi.com/wp-content/themes/appdev-child/assets/images/Expressowifi_logo.png\" style=\"height: 45.5316px; width: 150px;\"><br></b></div><b><div><b><br></b></div><b>Dear" + ind.Customer_Name + ",<br><br></b>Our system noticed that your order is almost done, the last day rented is planned on " + ind.Data_Fine + ",<br><br>If you wish to extend , read istruction on this link <a href=\"http://support.expressowifi.com/article/42-extend-the-period\" target=\"_blank\">how to extend.</a><br><br>If you wish to over your rent as the date provided , please click on the following link <a href=\"http://support.expressowifi.com/article/64-istruction-about-drop-off\" target=\"_blank\">how to return, istructions</a>. <br><br>You can also ask us to change your drop-off point by send us an email to info@expressowifi.com and agree with us the new choice.<br><br>If you don't remember opening times or address of our points we suggest to look at http://support.expressowifi.com. <br><br>Important. In any case of emergency you can return the box from your country by agree with us by send an email to the same mail address info@expressowifi.com<br><br>This an automatic email, ignore in case you not need to reply.<br>"
+		content type:HTML
+	]
+}
