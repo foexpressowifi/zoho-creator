@@ -1,7 +1,7 @@
 thisapp.Mie_funzioni.debug("1" ,"schedule" ,"WhoDEvice" ,zoho.appname ,"running the whoDEvice schedule" );
 contSi=0;
 contNo=0;
-for each index in woocommerce_report[Data_Inizio == zoho.currentdate.subday(2) && STATO != "CANCELLATO" && STATO != "SPEDITO"]
+for each index in woocommerce_report[Data_Inizio == zoho.currentdate.subday(2) && STATO != "CANCELLATO" && STATO != "SPEDITO" && STATO != "ESTENSIONE"]
 {
 	if(index.Database_Materiale_Nome_Device is NULL)
 	{
