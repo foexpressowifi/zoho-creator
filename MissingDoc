@@ -1,0 +1,15 @@
+thisapp.Mie_funzioni.debug("1" ,zoho.appname ,"schedule" ,"MissingDoc" ,"running the Missing Doc Reminder" );
+for each index in woocommerce_report[Documento_identit_inviato == false]
+{
+	if(index.Data_Inizio = Tomorrow)
+	{
+		sendmail
+		[
+			from:zoho.adminuserid
+			to:index.Email
+			subject:"expressowifi - Missing id document for order:" + index.Order
+			message:"<div><b><img src=\"https://www.expressowifi.com/wp-content/themes/appdev-child/assets/images/Expressowifi_logo.png\" style=\"height: 45.5316px; width: 150px;\"><br></b></div><b><div><b><br></b></div><b>Dear " + index.Customer_Name + ",</b><div><br></div><div>Our system noticed that you haven't uploaded your Identity Document.</div><div><br></div><div>Italian regulations require any kind of identification, please provide a photo/scan of your document (driver's license, national ID or Passport in case)</div><div><br></div><div>using the following link: <a href=\"https://www.expressowifi.com/upload_id/\" target=\"_blank\">https://www.expressowifi.com/upload_id/</a>.&nbsp;</div><div><br></div><div>Without an ID we won't be able to fulfill your order, or we might suspend the service if we don't receive it within 24 hours of your first rental day.</div><div><br></div><div>Please note all information is kept safely in our servers and the upload uses SSL.</div><div><br></div><div>This an automatic email, ignore in case your have already done.&nbsp;</div>"
+			content type:HTML
+		]
+	}
+}
