@@ -1,0 +1,3 @@
+thisapp.Mie_funzioni.debug("1" ,zoho.appname ,"schedule" ,"Stats1_update" ,"running the statistics schedule" );
+thisapp.stats_func.Stats1_bdayVSfirstday();
+thisapp.stats_func.Stats2_enddayVSfirstday();
