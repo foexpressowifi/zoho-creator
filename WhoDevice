@@ -1,0 +1,25 @@
+thisapp.Mie_funzioni.debug("1" ,"schedule" ,"WhoDEvice" ,zoho.appname ,"running the whoDEvice schedule" );
+contSi=0;
+contNo=0;
+for each index in woocommerce_report[Data_Inizio == zoho.currentdate.subday(2) && STATO != "CANCELLATO" && STATO != "SPEDITO"]
+{
+	if(index.Database_Materiale_Nome_Device is NULL)
+	{
+		contSi=contSi + 1;
+		thisapp.Mie_funzioni.debug("2err" ,zoho.appname ,"schedule" ,"WhoDEvice " + index.Order ,"Value of Device name is NULL" );
+		sendmail
+		[
+			from:zoho.adminuserid
+			to:index.Email
+			subject:"expressowifi, soft request for your order " + index.Order
+			message:"<div><b><img src=\"https://www.expressowifi.com/wp-content/themes/appdev-child/assets/images/Expressowifi_logo.png\" style=\"height: 45.5316px; width: 150px;\"><br></b></div><b><div><b><br></b></div><b>Dear " + index.Customer_Name + ",</b><div><b><br></b></div><div>we are writing because our partner not provide yet the device name assigned to you. To be ready on support you , we kindly ask the possibility to known the device name in your hand.&nbsp;</div><div><br></div><div>is the SSID NETWORK name or expressowifi_XXXX</div><div><br></div><div>Thanks for your understanding.</div><div><b><br></b></div><div><b>expressowifi TEAM</b></div>"
+			content type:HTML
+		]
+	}
+	else
+	{
+		//in this else is match order that have assiged device.
+		contNo=contNo + 1;
+	}
+}
+thisapp.Mie_funzioni.debug("3" ,zoho.appname ,"schedule" ,"WhoDEvice" ,"routine terminated ,  for date  " + zoho.currentdate.subday(2) + " number of device assigned are " + contNo + " , number of device not assiged  are " + contSi );
