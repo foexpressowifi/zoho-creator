@@ -13,7 +13,7 @@ searA = Database_Materiale[Nome_Device == device];
 thisapp.Mie_funzioni.debug("2",zoho.loginuser,"inputbox",c.Cliente," Logistic point is  " + c.Nome_Punto + " the device entered was " + strTemp + " Processed String was " + strClear + " the device name is " + device + " the searchA.ID is " + searA.ID);
 if(searA.ID is NULL)
 {
-	thisapp.Mie_funzioni.debug("3-err",zoho.loginuser,"inputbox",c.Cliente," enter in searA.ID == NULL, Logistic point is  " + c.Nome_Punto + " the device entered was " + strTemp + " Processed String was " + strClear);
+	thisapp.Mie_funzioni.debug("3err",zoho.loginuser,"inputbox",c.Cliente," enter in searA.ID == NULL, Logistic point is  " + c.Nome_Punto + " the device entered was " + strTemp + " Processed String was " + strClear);
 	sendmail
 	[
 		from :zoho.adminuserid
@@ -36,11 +36,11 @@ else
 	}
 	else
 	{
-		thisapp.Mie_funzioni.debug("4b",zoho.loginuser,"inputbox",c.Cliente,"Enter in the else id.woocommerce is not null - value of strTemp and " + strTemp + " and c.id_woocommerce " + c.ID_woocommerce);
+		thisapp.Mie_funzioni.debug("4c",zoho.loginuser,"inputbox",c.Cliente,"Enter in the else id.woocommerce is not null - value of strTemp and " + strTemp + " and c.id_woocommerce " + c.ID_woocommerce);
 		c.Nome_Device=strTemp;
 		searA.Ordine=c.ID_woocommerce;
-		thisapp.Mie_funzioni.debug("4c",zoho.loginuser,"inputbox",c.Cliente,"Assign done, value of nome device is: " + c.Nome_Device + " ,name of order assigned is " + searA.Ordine);
-		thisapp.Mie_funzioni.Manda_a_history(searA);
+		thisapp.Mie_funzioni.debug("4d",zoho.loginuser,"inputbox",c.Cliente,"Assign done, value of nome device is: " + c.Nome_Device + " ,name of order assigned is " + searA.Ordine);
+		thisapp.Mie_funzioni.Manda_a_history(searA,c.Operazione.toString());
 	}
 }
 openUrl("#Script:dialog.close","same window");
