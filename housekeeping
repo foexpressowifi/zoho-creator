@@ -1,0 +1,7 @@
+cont=0;
+for each bb in debug[Added_Time < zoho.currentdate.subDay(5)]
+{
+	delete from debug[ID = bb.ID];
+	cont=cont + 1;
+}
+thisapp.Mie_funzioni.debug("1" ,zoho.appname ,"schedule" ,"housekeeping" ,"Housekeeping running, clean " + cont + " rows" );
