@@ -1,0 +1,46 @@
+c = Logistica[ID == input.arg1];
+thisapp.Mie_funzioni.debug("1",zoho.loginuser,"inputbox",c.Cliente,"arg1: " + input.arg1 + " arg2:  " + input.arg2 + " ID_woocommerce " + c.ID_woocommerce);
+c.Nome_Device=input.arg2;
+c.Completato=true;
+ordine = c.Cliente;
+strTemp = c.Nome_Device;
+allalpha = strTemp;
+remove_under = allalpha.removeAllAlpha();
+remove_space = remove_under.remove("_");
+strClear = remove_space.trim();
+device = "EXPRESSOWIFI_" + strClear;
+searA = Database_Materiale[Nome_Device == device];
+thisapp.Mie_funzioni.debug("2",zoho.loginuser,"inputbox",c.Cliente," Logistic point is  " + c.Nome_Punto + " the device entered was " + strTemp + " Processed String was " + strClear + " the device name is " + device + " the searchA.ID is " + searA.ID);
+if(searA.ID is NULL)
+{
+	thisapp.Mie_funzioni.debug("3err",zoho.loginuser,"inputbox",c.Cliente," enter in searA.ID == NULL, Logistic point is  " + c.Nome_Punto + " the device entered was " + strTemp + " Processed String was " + strClear);
+	sendmail
+	[
+		from :zoho.adminuserid
+		to :"logistica@expressowifi.com"
+		subject :"Zoho not able to register Order to Device." + c.Cliente
+		message :"The sw can't assign the device to order because the name of device contain too wrong element , please do by hand , The order is  " + c.Cliente + " Logistic point is  " + c.Nome_Punto + " the device entered was " + strTemp + " Processed String was " + strClear
+	]
+}
+else
+{
+	//intID=0;
+	if(c.ID_woocommerce == "")
+	{
+		sCleanOrder = c.Cliente.removeAllAlpha();
+		thisapp.Mie_funzioni.debug("4a",zoho.loginuser,"inputbox",c.Cliente,"removed all alpha from c.cliente " + sCleanOrder);
+		d = woocommerce_report[Order == sCleanOrder];
+		thisapp.Mie_funzioni.debug("4b",zoho.loginuser,"inputbox",c.Cliente,"Enter in the if - value of strTemp and " + strTemp + " and d.Order " + d.Order + "and ID is " + d.ID);
+		c.Nome_Device=strTemp;
+		searA.Ordine=d.ID;
+	}
+	else
+	{
+		thisapp.Mie_funzioni.debug("4c",zoho.loginuser,"inputbox",c.Cliente,"Enter in the else id.woocommerce is not null - value of strTemp and " + strTemp + " and c.id_woocommerce " + c.ID_woocommerce);
+		c.Nome_Device=strTemp;
+		searA.Ordine=c.ID_woocommerce;
+		thisapp.Mie_funzioni.debug("4d",zoho.loginuser,"inputbox",c.Cliente,"Assign done, value of nome device is: " + c.Nome_Device + " ,name of order assigned is " + searA.Ordine);
+		thisapp.Mie_funzioni.Manda_a_history(searA,c.Operazione.toString());
+	}
+}
+openUrl("#Script:dialog.close","same window");
