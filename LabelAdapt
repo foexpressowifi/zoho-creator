@@ -1,0 +1,18 @@
+thisapp.Mie_funzioni.debug("1" ,zoho.appname ,"schedule" ,"LabelAdatp" ,"running the Label_adapt function" );
+for each indexnat in woocommerce_report[Added_Time == yesterday]
+{
+	conftnat = Conf_NAT[Origine == indexnat.Nazionalita];
+	if(conftnat.ID != NULL)
+	{
+		info indexnat.Nazionalita;
+		info conftnat.Origine;
+		indexnat.Nazionalita=conftnat.NAT;
+	}
+	conftstate = Conf_NAT[Origine == indexnat.STATO];
+	if(conftstate.ID != NULL)
+	{
+		info indexnat.STATO;
+		info conftstate.Origine;
+		indexnat.STATO=conftstate.NAT;
+	}
+}
