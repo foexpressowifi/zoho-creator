@@ -1,0 +1,9 @@
+thisapp.Mie_funzioni.debug("1" ,zoho.appname ,"schedule" ,"ChangeState" ,"running the ChangeState function" );
+for each wooid in woocommerce_report[Data_Inizio == yesterday]
+{
+	if(wooid.STATO == "READY_TO_START")
+	{
+		wooid.STATO="IN_NOLEGGIO";
+		thisapp.Mie_funzioni.debug("2" ,zoho.appname ,"schedule" ,"ChangeState " + wooid.Order ,"Order switch to On-Rent" );
+	}
+}
