@@ -1,0 +1,15 @@
+void Mie_funzioni.invia_his(int Ids)
+{
+	his1 = HIS_BOOKING[ID == Ids];
+	//to = "wondy1979@me.com";
+	subject = "expressowifi Your Order  " + his1.H_I_S_REF_NO + "  has been confirmed";
+	message = "We inform that we review your order and is now set in wait to delivery. For any question reply this email to backoffice@expressowifi.com";
+	sendmail
+	[
+		from :zoho.adminuserid
+		to :"vacationop@his-italy.net"
+		subject :subject
+		message :message
+	]
+	//to :"vacationop@his-italy.net"
+}
