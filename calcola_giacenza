@@ -1,0 +1,15 @@
+void Mie_funzioni.calcola_giacenza(Calcolo_Giacenze obj)
+{
+	nome = obj.Nome_Punto;
+	// info nome;
+	// function to locate row between two dates;
+	data = today.addDay(7);
+	//info today;
+	//info data;
+	Day_Count = Logistica[Nome_Punto = nome && Data_Appuntamento >= today && Data_Appuntamento <= data && Operazione != "Consegna"].count();
+	obj.N_Ritiri=Day_Count;
+	Day_Count = 0;
+	Day_Count = Logistica[Nome_Punto = nome && Data_Appuntamento >= today && Data_Appuntamento <= data && Operazione = "Consegna"].count();
+	obj.N_Consegne=Day_Count;
+	obj.Periodo_Osservato="Dal " + today + " al " + data;
+}
