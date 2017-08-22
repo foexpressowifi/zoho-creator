@@ -1,0 +1,14 @@
+void Mie_funzioni.Manda_a_history(Database_Materiale Comp, string verso)
+{
+	c_bom = BOM[ID = Comp.LINEA_COMPLETA];
+	insert into HISTORY
+	[
+		Added_User=zoho.loginuser
+		Nome_Device=Comp.Nome_Device
+		Ordine=Comp.Ordine
+		Date_Assegnazione=Today
+		LDV=Comp.LDV_Rientro
+		DIREZIONE=verso
+		Commenti=c_bom.LINEA + " " + c_bom.ICCD
+	]
+}
