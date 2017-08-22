@@ -1,0 +1,8 @@
+void Mie_funzioni.Gestisci_TO(HIS_BOOKING obj)
+{
+	index = obj.ID;
+	thisapp.Mie_funzioni.invia_his(index);
+	thisapp.Mie_funzioni.insert_woo(index);
+	c = HIS_BOOKING[ID == index];
+	c.STATUS="OK";
+}
