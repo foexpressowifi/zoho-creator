@@ -1,0 +1,15 @@
+bool Mie_funzioni.logistica_checkbox(Logistica logi)
+{
+	if(logi.Operazione == "Rientro")
+	{
+		logi.Nome_Device="Rientro";
+		logi.Completato=true;
+		return true;
+	}
+	else
+	{
+		//openurl("https://preapp.zohocreator.com/zoho_ivan157/expressowifi2/#Form:inputBox?arg1=" + logi.ID,"popup window");
+		openUrl("#Form:inputBox?arg1=" + logi.ID,"popup window");
+		return true;
+	}
+}
