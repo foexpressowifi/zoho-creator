@@ -1,0 +1,19 @@
+void Mie_funzioni.insert_b2b_2(int Ids)
+{
+	var1 = DONTSTOPME_TRAVEL[ID == Ids];
+	insert into woocommerce_report
+	[
+		Added_User=zoho.loginuser
+		Email="b2b@ignore.com"
+		Order=var1.H_I_S_REF_NO
+		Customer_Name=var1.NOME
+		Data_Inizio=var1.START_DATE
+		Data_Fine=var1.RELEASE_DATE
+		Pickup_type=var1.START_CITY
+		Pickup_Place=var1.PICK_UP_PLACE
+		Drop_type=var1.RELEASE_CITY
+		Drop_Place=var1.DROP_OFF_PLACE
+		Data_Prenotazione=var1.Added_Time
+		Commenti=var1.ARRIVAL_FLIGHT + " " + var1.FCO_FLIGHT + " " + var1.TIME_OF_APPOINTMENT
+	]
+}
