@@ -1,0 +1,15 @@
+void Mie_funzioni.set_spedito(int id_index)
+{
+	mappa = woocommerce_report[ID == id_index];
+	mappa.STATO="SPEDITO";
+}
+
+void Mie_funzioni.Ritiro_Prenotato(woocommerce_report obj)
+{
+	obj.Gestione_Rientro1="Ritiro Prenotato";
+}
+
+void Mie_funzioni.Ritiro_Eseguito(woocommerce_report obj)
+{
+	obj.Gestione_Rientro1="Ritiro Eseguito";
+}
