@@ -1,0 +1,11 @@
+void Mie_funzioni.all_rec_woo()
+{
+	for each  index in woocommerce_report[ID != 0]
+	{
+		url = "https://secure.helpscout.net/search/?query=" + index.Order;
+		index.Url_al_woocommerce="";
+		info "var url --> " + url;
+		index.Url_al_woocommerce="<a href='" + url + "' target='_blank' title='Helpscout'>Search mail here</a>";
+		info "wwo url --> " + index.Url_al_woocommerce;
+	}
+}
