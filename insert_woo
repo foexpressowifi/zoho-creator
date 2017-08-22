@@ -1,0 +1,19 @@
+void Mie_funzioni.insert_woo(int Ids)
+{
+	his2 = HIS_BOOKING[ID == Ids];
+	insert into woocommerce_report
+	[
+		Added_User=zoho.loginuser
+		Order=his2.H_I_S_REF_NO
+		Email="b2b@ignore.com"
+		Customer_Name=his2.NOME
+		Data_Inizio=his2.START_DATE
+		Data_Fine=his2.RELEASE_DATE
+		Pickup_type=his2.START_CITY
+		Pickup_Place=his2.PICK_UP_PLACE
+		Drop_type=his2.RELEASE_CITY
+		Drop_Place=his2.DROP_OFF_PLACE
+		Data_Prenotazione=his2.Added_Time
+		Commenti=his2.ARRIVAL_FLIGHT + " " + his2.FCO_FLIGHT + " " + his2.TIME_OF_APPOINTMENT
+	]
+}
