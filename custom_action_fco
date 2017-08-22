@@ -1,0 +1,4 @@
+void Mie_funzioni.custom_action_fco(Logistica logi)
+{
+	openUrl("#Form:inputBox?arg1=" + logi.ID + "&arg2=  ","popup window");
+}
