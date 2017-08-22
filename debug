@@ -1,0 +1,12 @@
+void Mie_funzioni.debug(string step, string sfrom, string sto, string ssubject, string smessage)
+{
+	sT1 = "debug-" + step + "-";
+	insert into debug
+	[
+		Added_User=zoho.loginuser
+		from=sfrom
+		to=sto
+		subject_field=sT1 + ssubject
+		message="Debug Message: " + smessage
+	]
+}
