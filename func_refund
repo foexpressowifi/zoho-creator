@@ -1,0 +1,10 @@
+void Mie_funzioni.func_refund(woocommerce_report rec)
+{
+	//Incremento contatore fattura
+	// ID conf 2934899000003588847
+	ini = Configurazioni[ID == 2934899000003588847];
+	contatore = ini.Contatore_Fattura;
+	contatore = contatore + 1;
+	rec.CREDIT_NOTE_N=ini.Prefisso_fattura + contatore;
+	ini.Contatore_Fattura=contatore;
+}
