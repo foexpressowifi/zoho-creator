@@ -1,0 +1,26 @@
+void stats_func.Stats1_bdayVSfirstday()
+{
+	limit = 0;
+	for each  index in woocommerce_report[Stats1_bdayVSfirstday == NULL]
+	{
+		if(index.Data_Inizio != NULL)
+		{
+			index.Stats1_bdayVSfirstday=days360(index.Added_Time,index.Data_Inizio);
+			if(index.Stats1_bdayVSfirstday < 0)
+			{
+				index.Stats1_bdayVSfirstday=-2000;
+			}
+		}
+		else
+		{
+			index.Stats1_bdayVSfirstday=-1000;
+		}
+		limit = limit + 1;
+		//info index.ID;
+		//info index.Stats1_bdayVSfirstday;
+		if(limit >= 500)
+		{
+			break;
+		}
+	}
+}
