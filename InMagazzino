@@ -1,0 +1,17 @@
+void Mie_funzioni.InMagazzino(woocommerce_report obj)
+{
+	obj.Gestione_Rientro1="Magazzino";
+	iDev = obj.Database_Materiale_Nome_Device;
+	thisapp.Mie_funzioni.debug("1",zoho.loginuserid,"InMagazzino",obj.Order,"Start function, var are: iDev: " + iDev);
+	if(iDev != NULL)
+	{
+		iposDBmat = Database_Materiale[ID = iDev];
+		iposDBmat.In_Magazzino=true;
+		iposDBmat.In_Stock_presso="";
+		iposDBmat.Ordine="";
+	}
+	else
+	{
+		thisapp.Mie_funzioni.debug("2err",zoho.loginuserid,"InMagazzino",obj.Order,"Error during DBmat assigment to warehouse for order : " + obj.Order + " and device ID: " + iDev);
+	}
+}
